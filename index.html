@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>My pagina</title>
+    <!--<link rel="stylesheet" type="text/css" href="./public/ccs/stylelog.css" />-->
+</head>
+select{width:100%;padding:8px 8px;margin:5px 0;display:inline-block;border:1px solid #ccc;border-radius:4px;box-sizing:border-box;background-color:#fff;font-size:16px;height:50px}input[type="password"]{width:100%;padding:8px 8px;margin:5px 0;display:inline-block;border:1px solid #ccc;border-radius:4px;box-sizing:border-box;background-color:#fff;font-size:16px;height:50px}input[type="submit"]{width:100%;background-color:#4d215e;color:#fff;padding:10px 20px;border:none;border-radius:8px;cursor:pointer;text-align:center;font-size:18px;height:80px}input[type="submit"]:hover{background-color:#45a049;align:center}.ventana{border:1px solid #ccc;width:400px;height:550px;margin-left:auto;margin-right:auto;position:relative;aling-items:center;justify-content:center;border-radius:8px;background-color:#8b3caa;box-shadow:0 0 10px rgba(0,0,0,.5);transform:translateY(5%)}.img{border:0 solid #ccc;float:center;width:270px;height:230px;padding:0;background-image:url(public/img/xlogo_p.png.pagespeed.ic.q-C7gvSgjK.webp);background-repeat:no-repeat;margin-left:auto;margin-right:auto;margin-top:50px}.img2{border:0 solid #ccc;float:center;width:270px;height:250px;padding:0;background-repeat:no-repeat;margin-left:auto;margin-right:auto}</style>
+<body onload="nobackbutton()">
+    
+        
+    <div class="ventana">
+    	<div class="img">
+        
+        </div>
+        <div class="img2">
+        	<form id="signIn" action="http://deimsoft.com/Kassya/User/signIn" name="signIn" method="post">
+               <br>
+                <div align='left' class="image">
+                    <!--<label for="fname">Usuario</label>-->
+                    <input type="text" id="usua_codigo" name="usua_codigo" placeholder="Usuario" onkeyup="javascript:this.value=this.value.toUpperCase()">
+                </div>
+                <div>
+                    <input type="password" id="usua_clave" name="usua_clave" placeholder="Contraseña">
+                </div>
+              
+               <br>
+               
+               <br>
+                <div style='border:none;'>
+                    <input id="signInBtn" name="signInBtn" type="submit" value="Accesar" style="height:40px; border-radius: 0px; ">
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+        <script>$(function(){$('#signInBtn').click(function(e){e.preventDefault();signIn();});});function signIn(){var usua_codigo=$('form[name=signIn] input[name=usua_codigo]')[0].value;var usua_clave=$('form[name=signIn] input[name=usua_clave]')[0].value;if(usua_codigo.length>0&&usua_clave.length>0){$.ajax({type:"POST",url:"http://deimsoft.com/Kassya/User/signIn",data:{usua_codigo:usua_codigo,usua_clave:usua_clave}}).done(function(response){if(response==1){window.location.href='Menu/vermenu';}else{alert(response.toString());}});}else{alert("Se requiere de un usuario y clave.");}}function nobackbutton(){window.location.hash="no-back-button";window.location.hash="Again-No-back-button";window.onhashchange=function(){window.location.hash="no-back-button"};}</script>
+      
+      </body>
+</html>      
